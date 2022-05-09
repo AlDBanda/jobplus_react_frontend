@@ -1,7 +1,8 @@
 import { makeStyles } from '@material-ui/core';
-import { CallMissedSharp } from '@material-ui/icons'
 import React from 'react'
 import { Hidden } from '@material-ui/core';
+import Filter from './Filter'
+import Listing from './Listing'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,13 +28,13 @@ export default function () {
     <div className={classes.root}>
       <div className={classes.lblock}>
         <Hidden smDown>
-        <p>Filter 1</p>
-        <p>Filter 2</p>
+         <Filter />
+         <Filter />
         </Hidden>
       </div>
       <div className={classes.rblock}>
-        <p>Listings 1</p>
-        <p>Listings 2</p>
+        <Listing />
+        <Listing />
       </div>
     </div>
   )
