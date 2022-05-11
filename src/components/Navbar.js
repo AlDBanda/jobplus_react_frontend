@@ -138,11 +138,11 @@ const handleTabIndexChange = (event, index) => {
             </Badge>
           </IconButton>
 
-        <IconButton size="small" component={Link} to={'/search'} color="inherit" edge='start'>
+        <IconButton size="small" component={Link} to={'/profile'} color="inherit" edge='start'>
             <PersonOutlineIcon />
           </IconButton>
 
-          <IconButton size="small" component={Link} to={'/search'} color="inherit" edge='start'>
+          <IconButton size="small" component={Link} to={'/login'} color="inherit" edge='start'>
             <ExitToAppIcon />
           </IconButton>
 

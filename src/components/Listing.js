@@ -7,6 +7,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import TimerIcon from '@material-ui/icons/Timer';
 import { Link } from 'react-router-dom';
+import Controls from './controls/Controls';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,14 +78,35 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'right',
     display: 'block',
     color: 'inherit',
+  },
+  skills:{
+    display: 'flex',
+    flexWrap: 'wrap',
+    listStyle: 'none',
+    padding: '0,',
+    marginBottom: '20px',
+    '& li':{
+      backgroundColor: theme.palette.common.skills,
+      padding:'7px 9px',
+      fontSize: '14px',
+      borderRadius: '16px',
+      marginRight: '10px',
+      marginBottom: '10px',
+
+    }
+  },
+  apply:{
+    marginBottom: '150px'
   }
 
 }));
 
-export default function Listing() {
+export default function Listing(props) {
 const classes = useStyles();
+const { detailed = false } = props;
 
  return (
+   <>
     <div className={classes.root}>
       <header className={classes.header}>
         <Typography className={classes.title} variant='h1'>Regulatory Affairs Senior Manager</Typography>
@@ -98,13 +120,77 @@ const classes = useStyles();
           <li><TimerIcon />Contract, full-time</li>
       </ul>
 
-       <p className={classes.details}>
+       {!detailed ? (
+         <>
+          <p className={classes.details}>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Explicabo, asperiores ullam minus at <b><Link to="/">Read more...</Link></b>
+          Explicabo, asperiores ullam minus at <b><Link to="/listing-details">Read more...</Link></b>
         </p>
+         
+         <Link className={classes.cta} to="/">Withdraw application</Link>
+         </>
+       ) : (
+          <Controls.FormGroupCustom className={classes.button}>
+            <Controls.ButtonCustom text="Apply Now" />
+          </Controls.FormGroupCustom>
+       )}
 
-        <Link className={classes.cta} to="/">Withdraw application</Link>
+       
+
+       
 
     </div>
+
+    { detailed ? (
+      <>
+      <p className={classes.details}>
+        Lorem ipsum dolo tirim amufhf elicit. n vitae lacus eget dui convallis sollicitudin. 
+        ESed ante risus, aliquet sit amet ex sit amet, interdum aliquam elit. 
+        Mauris lacus augue, gravida vitae arcu vel, gravida efficitur massa. 
+        Sed in faucibus ipsum. Etiam diam mi, dapibus sed orci et, aliquet fringilla quam. 
+        Curabitur ut sapien felis. Sed vehicula sem ut risus vestibulum, eget elementum sapien vulputate. 
+        Etiam non interdum metus, in ultricies tellus. Sed efficitur gravida tellus sed viverra. Curabitur est nisl, accumsan et eleifend et, 
+        feugiat eget sapien. Nunc arcu lacus, hendrerit vel rutrum sit amet, finibus at nibh.
+      </p>
+
+      <p>
+rbi eget ipsum accumsan, interdum libero at, tristique risus. In sapien nulla, tempus sed ante a, 
+vulputate pulvinar elit. Sed vel risus urna. Praesent consequat posuere leo, eget ullamcorper sem dapibus a. 
+Fusce sed orci tempus, efficitur libero in, mattis lectus. Curabitur lectus sapien, porta eget faucibus a, 
+commodo eget diam. Duis sagittis vitae nulla ut tristique. Vivamus eget risus a quam gravida cursus. F
+usce non mollis erat. 
+Praesent facilisis elementum rutrum. Nullam te
+
+      </p>
+
+      <h3>Required skills</h3>
+
+      <ul className={classes.skills}>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Python</li>
+        <li>Javascript</li>
+        <li>React</li>
+        <li>PHP</li>
+        <li>C</li>
+        <li>Ruby</li>
+        <li>Django</li>
+        <li>React</li>
+        <li>PHP</li>
+        <li>Ruby</li>
+        <li>Django</li>
+        <li>HTML</li>
+      </ul>
+
+<div className={classes.apply}>
+  <Controls.FormGroupCustom className={classes.button}>
+    <Controls.ButtonCustom text="Apply Now" />
+  </Controls.FormGroupCustom>
+</div>
+
+      </>
+    ) : ''}
+</>
+
   )
 }
