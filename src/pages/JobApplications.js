@@ -1,5 +1,5 @@
 import React from 'react'
-import Hero from '../components/ListingFilter'
+import Hero from '../components/Hero'
 import ListingFilter from '../components/ListingFilter'
 import Listing from '../components/Listing';
 
